@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Results</h1>
+    <p id="results"></p>
+    <script>
+        /*
+        OPERATOR PRECEDENCE RULES IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT (DESCENDING ORDER)
+        ---------------------------------------------------------------------------------------------------
+        1 --> ()      ----> Parantheses 
+        2 --> **      ----> Exponent
+        3 --> *, /, % ----> Multiplication, Division, Modulus
+        4 --> +, -    ----> Addition, Subtraction
+        ---------------------------------------------------------------------------------------------------
+        */
+
+        var results = "";
+
+        results += '-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+        results += 'OPERATOR PRECEDENCE RULES IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT (DESCENDING ORDER)<br>'
+        results += '-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+        results += '<pre>1 --> ()      ----> Parantheses                       <br></pre>'
+        results += '<pre>2 --> **      ----> Exponent                          <br></pre>'
+        results += '<pre>3 --> *, /, % ----> Multiplication, Division, Modulus <br></pre>'
+        results += '<pre>4 --> +, -    ----> Addition, Subtraction             <br></pre>'
+        results += '-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+
+
+        // subtraction and addition
+        const operation1 = 10 - 50 + 80  // Expected Value 40
+        results += "Operation1 (10 - 50 + 80) = " + operation1 + "<br>"
+
+
+        // showing that multiplication has
+        // precedence over  subtraction.
+        const operation2 = 10 - 50 * 10  // Expected Value -490
+        results += "Operation2 (10 - 50 * 10) = " + operation2 + "<br>"
+        // if subtraction had precedence
+        // over multiplication, the
+        // expected result would be -400.
+
+
+        // showing that multiplication
+        // has precedence over addition.
+        const operation3 = 10 + 50 * 10  // Expected Value 510
+        results += "Operation3 (10 + 50 * 10) = " + operation3 + "<br>"
+        // if addition had precedence
+        // over multiplication, the
+        // expected result would be 600.
+
+
+        // showing that division
+        // has precedence over  subtraction.
+        const operation4 = 10 - 50 / 10  // Expected Value 5
+        results += "Operation4 (10 - 50 / 10) = " + operation4 + "<br>"
+        // if subtraction had precedence
+        // over division, the
+        // expected result would be -4.
+
+
+        // showing that division
+        // has precedence over  addition.
+        const operation5 = 10 + 50 / 10  // Expected Value 15
+        results += "Operation5 (10 + 50 / 10) = " + operation5 + "<br>"
+        // if addition had precedence
+        // over division, the
+        // expected result would be 6.
+
+
+        // showing that Modulus
+        // has precedence over subtraction.
+        const operation6 = 10 - 50 % 8  // Expected Value 8
+        results += "Operation6 (10 - 50 % 8) = " + operation6 + "<br>"
+        // if subtraction had precedence
+        // over Modulus, the
+        // expected result would be 0.
+
+
+        // showing that Modulus
+        // has precedence over addition.
+        const operation7 = 10 + 50 % 8  // Expected Value 12
+        results += "Operation7 (10 - 50 % 8) = " + operation7 + "<br>"
+        // if addition had precedence
+        // over Modulus, the
+        // expected result would be 4.
+
+
+        // showing that Exponent has
+        // precedence over Multiplication.
+        const operation8 = 10 * 8 ** 2  // Expected Value 640
+        results += "Operation8 (10 * 8 ** 2) = " + operation8 + "<br>"
+        // if Multiplication had precedence
+        // over Exponent, the
+        // expected result would be 6400.
+
+
+        // showing that Exponent has
+        // precedence over Division.
+        const operation9 = 100 / 2 ** 2  // Expected Value 25
+        results += "Operation9 (100 / 2 ** 2) = " + operation9 + "<br>"
+        // if Division had precedence
+        // over Exponent, the
+        // expected result would be 2500.0
+
+
+        // showing that Exponent has
+        // precedence over Modulus.
+        const operation10 = 51 % 2 ** 2  // Expected Value 3
+        results += "Operation10  (51 % 2 ** 2) = " + operation10 + "<br>"
+        // if Modulus had precedence
+        // over Exponent, the
+        // expected result would be 1.
+
+
+        // showing that Parantheses has
+        // precedence over Exponent.
+        const operation11 = (100 / 10) ** 2  // Expected Value 100
+        results += "Operation11 ((100 / 10) ** 2) = " + operation11 + "<br>"
+        // if the parantheses were not present, 
+        // the expected result would be 1.0
+
+
+        // showing that Parantheses has
+        // precedence over Multiplication.
+        const operation12 = (100 + 50) * 2  // Expected Value 300
+        results += "Operation12 ((100 + 50) * 2) = " + operation12 + "<br>"
+        // if the parantheses were not present, 
+        // the expected result would be 200
+
+
+        // showing that Parantheses has
+        // precedence over Division.
+        const operation13 = (100 + 50) / 2  // Expected Value 75
+        results += "Operation13 ((100 + 50) / 2) = " + operation13 + "<br>"
+        // if the parantheses were not present, 
+        // the expected result would be 125.0
+
+
+        // showing that Parantheses has
+        // precedence over Modulus.
+        const operation14 = (200 + 395) % 10  // Expected Value 5
+        results += "Operation14 ((200 + 395) % 10) = " + operation14 + "<br>"
+        // if the parantheses were not present, 
+        // the expected result would be 205
+
+
+        /*
+        OPERATOR ASSOCIATIVITY RULES IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT 
+        ---------------------------------------------------------------------------------------------------
+        When two operators have the same precedence, operations are done according to associativity rules.
+        1 --> +, -    ----> Addition, Subtraction have left associativity.
+        2 --> *, /, % ----> Multiplication, Division, Modulus have left associativity.
+        3 --> **      ----> Exponent have right associativity.
+        4 --> ()      ----> parentheses is non associative.
+        ---------------------------------------------------------------------------------------------------
+        */
+
+        // heading
+        results += '<br><br>-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+        results += 'OPERATOR ASSOCIATIVITY RULES IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT<br>'
+        results += '-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+        results += '<pre>When two operators have the same precedence, operations are done according to associativity rules.<br></pre>'
+        results += '<pre>1 --> +, -    ----> Addition, Subtraction have left associativity.<br></pre>'
+        results += '<pre>2 --> *, /, % ----> Multiplication, Division, Modulus have left associativity.<br></pre>'
+        results += '<pre>3 --> **      ----> Exponent have right associativity.<br></pre>'
+        results += '<pre>4 --> ()      ----> parentheses is non associative.<br></pre>'
+        results += '-----------------------------------------------------------------------------------------------------------------------------------------------<br>'
+
+
+        // Showing that Multiplication and
+        // Modulus have left associativity.
+        const operation15 = 52 * 30 % 100   // Expected Value 60
+        results += "Operation15 (52 * 30 % 100) = " + operation15 + "<br>"
+        // if multiplication and Modulus would
+        // be right associative, then the
+        // expected result would be 1560.
+
+
+        // Showing that Division and
+        // Modulus have left associativity.
+        const operation16 = 3300 / 30 % 50  // Expected Value 10
+        results += "Operation16 (3300 / 30 % 50) = " + operation16 + "<br>"
+        // if Division and Modulus would
+        // be right associative, then the
+        // expected result would be 1560.
+
+
+        // Showing that Division and
+        // Multiplication have left associativity.
+        const operation17 = 3000 / 30 * 50  // Expected Value 5000
+        results += "Operation17 (3000 / 30 * 50) = " + operation17 + "<br>"
+        // if Division and Multiplication would
+        // be right associative, then the
+        // expected result would be 2.0
+
+
+        // Showing that Exponent
+        // has right associativity.
+        const operation18 = 2 ** 3 ** 2  // Expected Value 512
+        results += "Operation18 (2 ** 3 ** 2) = " + operation18 + "<br>"
+        // if Exponent had right left associativity,
+        // the expected result would be 64.
+
+
+        /*
+        ORDER OF OPERAND EVALUATION IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT
+        -------------------------------------------------------------------------------------------------------------
+        Order of oprerand evaluation is always done from left to right in JAVASCRIPT.
+        -------------------------------------------------------------------------------------------------------------
+        */
+    
+        // heading
+        results += "<br><br>"
+        results += "-------------------------------------------------------------------------------------------------------------<br>"
+        results += "ORDER OF OPERAND EVALUATION IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT<br>"
+        results += "-------------------------------------------------------------------------------------------------------------<br>"
+        results += "Order of oprerand evaluation is always done from left to right in JAVASCRIPT.<br>"
+    
+
+        // creating test functions
+        results += "<br>"
+        function testSum(num1, num2) {
+            const result = num1 + num2
+            results += "testSum has worked. Result: " + result + "<br>"
+            return result
+        }
+    
+        function testSubtraction(num1, num2) {
+            const result = num1 - num2
+            results += "testSubtraction has worked. Result: " + result + "<br>"
+            return result;
+        }
+
+        function testMultiplication(num1, num2) {
+            const result = num1 * num2;
+            results += "testMultiplication has worked. Result: " + result + "<br>"
+            return result
+        }
+
+        function testDivision(num1, num2) {
+            const result = num1 / num2
+            results += "testDivision has worked. Result: " + result + "<br>"
+            return result
+        }
+
+
+        // Showing that the operands are from left to right.
+        results += "<br>"
+        const operation19 = testSum(4, 5) * testSubtraction(25, 19) * testMultiplication(2, 5) * testDivision(10, 5);  // Expected 1080
+        results += "Operation19 (testSum(4, 5) * testSubtraction(25, 19) * testMultiplication(2, 5) * testDivision(10, 5)) = " + operation19 + "<br>"
+        // in this context, the operator
+        // between the operands is multiplication
+
+
+        // Showing that the operands are from left to right.
+        results += "<br>"
+        const operation20 = testSum(4, 5) + testSubtraction(25, 19) + testMultiplication(2, 5) + testDivision(10, 5);  // Expected 27
+        results += "Operation20 (testSum(4, 5) + testSubtraction(25, 19) + testMultiplication(2, 5) + testDivision(10, 5)) = " + operation20 + "<br>"
+        // in this context, the operator
+        // between the operands is summation
+
+
+        // Showing that the operands are from left to right.
+        results += "<br>"
+        const operation21 = testSum(1, 1) ** testSubtraction(25, 22); // Expected 8
+        results += "Operation21 (testSum(1, 1) ** testSubtraction(25, 22)) = " + operation21 + "<br>"
+        // in this context, the operator
+        // between the operands is exponent
+
+
+        /*
+        -------------------------------------------------------------------------------------------------------------
+        SIDE EFFECTS OF OPERAND EVALUATION IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT    
+        -------------------------------------------------------------------------------------------------------------
+        */
+    
+        // heading
+        results += "<br><br>"
+        results += '-------------------------------------------------------------------------------------------------------------<br>'
+        results += 'SIDE EFFECTS OF OPERAND EVALUATION IN ARITHMETIC EXPRESSIONS IN JAVASCRIPT<br>'
+        results += '-------------------------------------------------------------------------------------------------------------<br>'
+    
+        var sideEffectVariable = 50;
+    
+        function testFunctionSideEffectVersion1() {
+            sideEffectVariable = sideEffectVariable + 400;
+            return sideEffectVariable; 
+        }
+    
+        var result1 = testFunctionSideEffectVersion1() + sideEffectVariable;
+        var temp = testFunctionSideEffectVersion1();
+        var result2 = temp + sideEffectVariable;
+    
+        results += "RESULT1 (testFunctionSideEffectVersion1() + sideEffectVariable) = " + result1 + "<br>"
+        results += "RESULT2 (temp + sideEffectVariable) = " + result2 + "<br>"
+    
+        // if the function would not have side effects, then result1 = result2 should be equal. 
+        // However, because result1 is not equal to result2, side effect is observed in JAVASCRIPT.
+    
+        results += "<br>"
+        results += "if the function would not have side effects, then result1 = result2 should be equal.<br>"
+        results += "However, because result1 is not equal to result2, side effect is observed in JavaScript.<br>"
+        results += "<br>"
+    
+        var sideEffectVariable2 = 75
+    
+        function testFunctionSideEffectVersion2() {
+            sideEffectVariable2 = 500;
+            return sideEffectVariable2;
+        }
+        
+        var result3 = sideEffectVariable2 + testFunctionSideEffectVersion2() + sideEffectVariable2;
+    
+        // As it can be seen from result3, order of operand evaluation does not change 
+        // because of side effect effect of functions. It is from left to right as always.
+
+        results += "RESULT3 (sideEffectVariable2 + testFunctionSideEffectVersion2() + sideEffectVariable2) = " + result3 + "<br><br>"
+        results += "As it can be seen from result3, order of operand evaluation does not change <br>"
+        results += "because of side effect of functions. It is from left to right as always. <br>"
+
+
+        const paragraph = document.querySelector("#results")
+        paragraph.innerHTML = results;
+
+    </script>
+
+</body>
+</html>

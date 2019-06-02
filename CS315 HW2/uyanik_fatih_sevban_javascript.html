@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Results</h1>
+    <p id="results"></p>
+    
+    <script>
+        var results = "";
+
+        // QUESTION1: What are the location of tests? Pretest, posttest, or both?
+
+        results += "<pre>----------------------------------------------------------------------<br></pre>"
+        results += "<pre>QUESTION1: What are the location of tests? Pretest, posttest, or both?<br></pre>"
+        results += "<pre>----------------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+
+        /////////////////////////////////////////OPERATION1///////////////////////////////////////
+        /////////////////////////////////////////WHILE LOOP///////////////////////////////////////
+        results += "<pre>--------------------------OPERATION1--------------------------<br></pre>"
+        results += "<pre>--------------------------WHILE LOOP--------------------------<br></pre>"
+
+        num = 10
+        pretestFlag = true
+
+        while (num < 10) {
+            pretestFlag = false
+            results += "<pre>While Loop in JavaScript is Post Test<br></pre>"
+            results += "<pre>Value in the loop is " + num + "<br></pre>"
+            num += 1
+        }
+
+        if (pretestFlag)
+            results += "<pre>While Loop in JavaScript is Pre Test<br></pre>"
+
+        results += "<pre>--------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+
+        /////////////////////////////////////////OPERATION2///////////////////////////////////////
+        ///////////////////////////////////////DO-WHILE LOOP//////////////////////////////////////
+        results += "<pre>--------------------------OPERATION2--------------------------<br></pre>"
+        results += "<pre>-------------------------DO-WHILE LOOP------------------------<br></pre>"
+
+        num = 10
+        pretestFlag = true
+
+        do {
+            pretestFlag = false
+            results += "<pre>Do-While Loop in JavaScript is Post Test<br></pre>"
+            results += "<pre>Value in the loop is " + num + "<br></pre>"
+            num += 1
+        } while (num < 10)
+
+        if (pretestFlag)
+            results += "<pre>Do-While Loop in JavaScript is Pre Test<br></pre>"
+
+        results += "<pre>--------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+
+        // QUESTION2: What kind of user-located loop control mechanisms are provided?
+
+        results += "<pre>--------------------------------------------------------------------------<br></pre>"
+        results += "<pre>QUESTION2: What kind of user-located loop control mechanisms are provided?<br></pre>"
+        results += "<pre>--------------------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+
+        // In JavaScript, there is a statement called "break" that enables to exit unconditionally.
+        // In addition, there is a statement called "continue" that enables to pass the current loop immediately.
+
+        results += "<pre>--------------------------------------------------------------------------------------------------------<br></pre>"
+        results += "<pre>In JavaScript, there is a statement called \"break\" that enables to exit unconditionally.              <br></pre>"
+        results += "<pre>In addition, there is a statement called \"continue\" that enables to pass the current loop immediately.<br></pre>"
+        results += "<pre>--------------------------------------------------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+
+        /////////////////////////////////////////OPERATION3///////////////////////////////////////
+        ///////////////////////////////////////////BREAK//////////////////////////////////////////
+        results += "<pre>--------------------------OPERATION3--------------------------<br></pre>"
+        results += "<pre>-----------------------------BREAK----------------------------<br></pre>"
+
+        index = 10
+        while (index > 0) {
+            results += "<pre>" + index + "<br></pre>"
+            index -= 1
+
+            // Breaks or exits the loop.
+            if (index == 8)
+                break
+        }
+
+        results += "<pre>Breaked or exited the loop at the value 8.</pre>"
+        results += "<pre>--------------------------------------------------------------<br></pre>"
+        results += "<br><br>"
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+
+        /////////////////////////////////////////OPERATION4///////////////////////////////////////
+        //////////////////////////////////////////CONTINUE////////////////////////////////////////
+        results += "<pre>--------------------------OPERATION4--------------------------<br></pre>"
+        results += "<pre>---------------------------CONTINUE---------------------------<br></pre>"
+
+        index = 10
+        while (index > 0) {
+            // Passes to next iteration immedately 
+            // for the values of 8 and 5.
+            if (index == 8 || index == 5) {
+                index -= 1
+                continue
+            }
+
+            results += "<pre>" + index + "<br></pre>"
+            index -= 1
+        }
+
+        results += "<pre>Passes to next iteration immedately for the values of 8 and 5.</pre>"
+        results += "<pre>--------------------------------------------------------------<br></pre>"
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+
+        const paragraph = document.querySelector("#results")
+        paragraph.innerHTML = results;
+    </script>
+
+</body>
+
+</html>
